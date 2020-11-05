@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocalizaChallenge.Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:LocalizaChallenge.Presentation.Controllers.DivisorController.GetDivisores(System.Double)">
+            <summary>
+            Pode ser acessado via URL, ex: port:0000/api/GetDivisores/numero_que_deseja_dividir
+            </summary>
+            <param name="numero"></param>
+            <returns></returns>
+            <response code="200"> Retornará todos os divisores daquele numero junto com os divisores Primos</response>
+        </member>
+    </members>
+</doc>

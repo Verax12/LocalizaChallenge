@@ -4,6 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\w.gontijo\source\repos\LocalizaChallenge\LocalizaChallenge.Presentation\LocalizaChallenge.Presentation.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\LocalizaChallenge.Aplication\LocalizaChallenge.Aplication.csproj" />
   </ItemGroup>

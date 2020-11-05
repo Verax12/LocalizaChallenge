@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace LocalizaChallenge.Presentation
 {
@@ -28,6 +29,26 @@ namespace LocalizaChallenge.Presentation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Localiza Challenge API",
+                    Description = "Uma WEB API para calcular os divisores e divisores primos de um Numero",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "William Gontijo",
+                        Email = "william854@live.com",
+                        Url = new Uri("https://www.linkedin.com/in/william-gontijo-543628142/"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
             services.AddScoped<IDivisorApplication, DivisorApplication>();
         }
 
@@ -38,6 +59,12 @@ namespace LocalizaChallenge.Presentation
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Localiza Challenge");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 

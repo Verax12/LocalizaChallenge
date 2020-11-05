@@ -19,11 +19,16 @@ namespace LocalizaChallenge.Presentation.Controllers
             _divisorApplication = divisorApplication;
         }
 
-        // GET: api/<ValuesController>
-        [HttpGet("{num}")]
-        public string GetDivisores(double num)
+        /// <summary>
+        /// Pode ser acessado via URL, ex: port:0000/api/GetDivisores/numero_que_deseja_dividir
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
+        /// <response code="200"> Retornará todos os divisores daquele numero junto com os divisores Primos</response>
+        [HttpGet("{numero}")]
+        public string GetDivisores(double numero)
         {
-            return _divisorApplication.Divisores(num);
+            return _divisorApplication.Divisores(numero);
 
         }
     }
